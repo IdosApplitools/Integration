@@ -57,7 +57,6 @@ public class Init {
 
         // Use Chrome browser
         driver = new ChromeDriver();
-
     }
 
     @Test
@@ -81,31 +80,31 @@ public class Init {
         eyes.closeAsync();
     }
 
-//    @Test
-//    public void basicTest() {
-//        // Set AUT's name, test name and viewport size (width X height)
-//        // We have set it to 800 x 600 to accommodate various screens. Feel free to
-//        // change it.
-//        eyes.open(driver, "Demo Java #5", "Java Test #5", new RectangleSize(800, 600));
-//
-//        // Navigate the browser to the "ACME" demo app.
+    @Test
+    public void basicTest() {
+        // Set AUT's name, test name and viewport size (width X height)
+        // We have set it to 800 x 600 to accommodate various screens. Feel free to
+        // change it.
+        eyes.open(driver, "Demo Java #5", "Java Test #5", new RectangleSize(800, 600));
+
+        // Navigate the browser to the "ACME" demo app.
 //        driver.get("file:///Users/idos/ido_js_folder/simple%20web%20page/index.html");
-//
-//        // To see visual bugs after the first run, use the commented line below instead.
-//        //driver.get("https://demo.applitools.com/index_v2.html");
-//
-////        for (int i = 0; i < 5; i++) {
-//        eyes.check("region check", Target.region(By.id("h")));
-//
-//        driver.findElement(By.id("h1")).click();
-//        js.executeScript("document.querySelector(CssSelectore).style.background = \\'rgba(0,0,0,1)\\'");
-//
-//        // Visual checkpoint #2
-//        eyes.check("region check", Target.region(By.id("h1")));
-//
-//        // End the test.
-//        eyes.closeAsync();
-//    }
+
+        // To see visual bugs after the first run, use the commented line below instead.
+        driver.get("https://demo.applitools.com/index_v2.html");
+
+//        for (int i = 0; i < 5; i++) {
+        eyes.check("region check", Target.region(By.id("h")));
+
+        driver.findElement(By.id("h1")).click();
+        js.executeScript("document.querySelector(CssSelectore).style.background = \\'rgba(0,0,0,1)\\'");
+
+        // Visual checkpoint #2
+        eyes.check("region check", Target.region(By.id("h1")));
+
+        // End the test.
+        eyes.closeAsync();
+    }
 
     @After
     public void tear() {
