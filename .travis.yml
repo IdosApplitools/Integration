@@ -1,0 +1,22 @@
+language: java
+
+services:
+  - docker
+
+dist: trusty
+
+addons:
+  chrome: stable
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - latestChromeDriverURL=$(wget http://chromedriver.storage.googleapis.com/LATEST_RELEASE -q -O -)
+        - wget "http://chromedriver.storage.googleapis.com/${latestChromeDriverURL}/chromedriver_linux64.zip"
+        - unzip chromedriver_linux64.zip -d /home/travis/build/
+        - chmod +x /home/travis/build/chromedriver
+        - /home/travis/build/chromedriver --version
+        - env webdriver.chrome.driver=/home/travis/build/
+        - ls /home/travis/build/
+        - mvn test -e -X
