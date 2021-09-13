@@ -1,8 +1,5 @@
 language: java
 
-services:
-  - docker
-
 dist: trusty
 
 addons:
@@ -20,4 +17,4 @@ jobs:
         - env webdriver.chrome.driver=/home/travis/build/
         - ls /home/travis/build/
         - export APPLITOOLS_BATCH_ID=`echo ${TRAVIS_PULL_REQUEST_SHA:=$TRAVIS_COMMIT}`
-        - mvn test -e -X
+        - mvn test
